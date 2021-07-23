@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width:980px;
+    height: 600px;
+    margin: 20px auto;
+}
+.register{
+    width: 45%;
+    vertical-align: top;
+    display:inline-block;
+    padding: 5px;
+    text-align: center;
+}
+.login{
+    width: 45%;
+    vertical-align: top;
+    display:inline-block;
+    padding: 5px;
+    text-align: center;
+}
+h1{
+    color: rgb(55, 39, 71);
+}
+input{
+    margin: 5px;
+    padding: 2px;
+}
+.email{
+    margin-left: 38px;
+}
+.password{
+    margin-left: 20px;
+}
+.add_favorite{
+    background-color: rgb(223, 223, 235);
+    width: 45%;
+    vertical-align: top;
+    display:inline-block;
+    padding: 5px;
+   
+    margin-top: 20px;
+}
+.all_books{
+    width: 45%;
+    vertical-align: top;
+    display:inline-block;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+}
+.logout{
+    margin-left: 300px;
+}

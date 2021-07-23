@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, {{user.first_name}} {{user.last_name}}!</h1>
+    <form action="/edit/{{book.id}}" method="POST">
+        {% csrf_token %}
+        <textarea name="title" id="" cols="30" rows="3">{{book.title}}</textarea>
+        <p>Added by: {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}}</p>
+        <p>Added on: {{book.created_at}}</p>
+        <p>Lost update on: {{book.updated_at}}</p>
+        <p>Description:</p>
+        <textarea name="description" id="" cols="30" rows="10">{{book.desc}}</textarea>
+        <input type="submit" name="" value="Update">
+    </form>
+
+    <form action="/delete/{{book.id}}" method="POST">
+        {% csrf_token %}
+        <input type="submit" name="" value="Delete">
+    </form>
+    <a href="/books">Go Back</a>
+
+    <h1>User Who like this book:</h1>
+    {% for user in book.users_who_like.all %}
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    <a href="/remove/{{book.id}}">Un Favorite</a>
+    {% endfor%}
+
+    {% if book in user.liked_books.all %}
+    
+    {% else %}
+    <form action="/add_book" method="POST">    
+        {% csrf_token %}
+        <input type="hidden" name="agregar" value="{{book.id}}">
+        <input type="submit"  name="" value="Add a Favorite"><BR></BR>
+    </form> 
+    {% endif%}
+
+
+</body>
+</html>
